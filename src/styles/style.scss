@@ -18,9 +18,11 @@ header {
     padding-top: 100px;
     overflow: hidden;
     .title {
-        font-size: 56px !important;
+        font-size: 36px !important;
         text-align: center;
-        color: #394529;
+        letter-spacing: 5px;
+        color: #fbbc17;
+        text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff, 2px 2px 10px #00000090;
     }
     @media (max-width: 762px) {
         padding-top: 130px;
@@ -31,8 +33,9 @@ header {
     }
     .reward-rate {
         text-align: center;
-        color: #394529;
-        font-size: 14px;
+        color: #9B567C;
+        font-size: 20px;
+        letter-spacing: 3px;
         white-space: nowrap;
         text-transform: uppercase;
         text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff, 2px 2px 10px #00000090;
@@ -44,12 +47,13 @@ header {
 }
 
 .subtitle {
-    color: #394529;
+    color: #9B567C;
 }
 .title-bar {
     text-align: center;
     h2 {
-        color: #394529;
+        color: #9B567C;
+        letter-spacing: 5px;
         text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff;
     }
 }
@@ -77,7 +81,7 @@ header {
         align-items: center;
         justify-content: space-between;
         h3 {
-            color: #394529;
+            color: #9B567C;
             text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff;
         }
         @media (max-width: 762px) {
@@ -174,7 +178,7 @@ header {
 }
 
 .btn-second {
-    background: #394529;
+    background: #9B567C;
     border: none;
     font-size: 16px;
     margin-right: 5px;
@@ -238,6 +242,7 @@ span.empty-image-skeleton {
     bottom: 6px;
     z-index: 3;
     color: #fff;
+    text-shadow: 2px 2px 0 #000, -2px 2px 0 #000, 2px -2px 0 #000, -2px -2px 0 #000;
     p {
         font-size: 11px;
         margin: 0;

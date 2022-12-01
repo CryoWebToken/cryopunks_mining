@@ -10,10 +10,7 @@ export default function Header({
     <header>
       <Container maxWidth="lg">
         <div className="header-content">
-          <div className="page-logo">
-            {/* eslint-disable-next-line */}
-            <img src="./logo.png" alt="logo" className="logo" />
-          </div>
+
           <Button variant="contained" color="secondary" className="wallet-button" onClick={() => connectWallet()} sx={{ color: "#fff", letterSpacing: 2 }}>
             {!connected ?
               <>

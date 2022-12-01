@@ -67,7 +67,7 @@ a {
   margin-top: 30px !important;
 }
 .wallet-button {
-  background-color: #394529 !important;
+  background-color: #9B567C !important;
   font-family: "Minercraftory" !important;
   padding: 5px 30px !important;
   font-size: 20px !important;
@@ -116,7 +116,7 @@ a {
 }
 .section2 {
   /* height: 40vh; */
-  background-color: #394529;
+  background-color: #9B567C;
 }
 .section2-claim {
   padding: 40px;
@@ -126,7 +126,7 @@ a {
   width: 100%;
   padding: 20px !important;
   font-family: "Minercraftory" !important;
-  color: #394529 !important;
+  color: #9B567C !important;
   background-color: #87cdf1 !important;
   font-size: 24px !important;
 }
@@ -158,7 +158,7 @@ a {
   transform: translateY(-3px);
 }
 .footer {
-  background-color: #394529;
+  background-color: #9B567C;
   padding: 30px 0;
 }
 .social-links {
@@ -213,7 +213,7 @@ button {
 .tab-btn {
   font-family: "Minercraftory" !important;
   font-size: 32px;
-  color: #3945298a;
+  color: #9B567C;
   border: none;
   font-weight: 700;
   margin-left: 20px;

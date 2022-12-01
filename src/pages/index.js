@@ -88,10 +88,10 @@ export default function Home() {
         const totalSupply = await contract.getTotalStaked()
         let total = 0
         try {
-            let promise_index = [];
-            for (let i = 0; i < parseInt(balance); i++) {
-                promise_index.push(contract_nft.tokenOfOwnerByIndex(address, i))
-            }
+            console.log("contract", await contract_nft.walletOfOwner(address));
+            
+            let promise_index = await contract_nft.walletOfOwner(address);
+
             const indexData = await Promise.all(promise_index);
             for (let i = 0; i < indexData.length; i++) {
                 unstaked.push(
@@ -101,7 +101,6 @@ export default function Home() {
                     }
                 )
             }
-
             let promise = [];
             for (let i = 0; i < parseInt(totalSupply); i++) {
                 promise.push(contract.viewStake(i))
@@ -235,7 +234,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Seattle SuperKongs Staking</title>
+                <title>CryoPunks Mining Dapp</title>
                 <meta name="description" content="Seattle SuperKongs Staking" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
@@ -248,22 +247,22 @@ export default function Home() {
                 <div className="top-title">
                     <Container maxWidth="lg">
                         <h1 className="title">
-                            Stake Your NFT
+                            Let Your Stevies Mine Cryogen
                         </h1>
-                        <p className="reward-rate">daily reward rate: <span>{dailyRewardRate === 0 ? "--" : dailyRewardRate} DUNK</span></p>
+                        <p className="reward-rate">daily reward rate: <span>{dailyRewardRate === 0 ? "--" : dailyRewardRate} CRYOGEN</span></p>
                     </Container>
                 </div>
                 {connected &&
                     <Container>
                         <div className="main-page">
                             <div className="title-bar">
-                                <h2>Total staked NFT: {totalStaked}</h2>
+                                <h2>Your Stevies Mining: {totalStaked}</h2>
                             </div>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} md={6}>
                                     <div className="nft-box">
                                         <div className="box-header">
-                                            <h3>Your NFT {unstakedNFTs?.length && `(${unstakedNFTs?.length})`}</h3>
+                                            <h3>Unemployed Stevies {unstakedNFTs?.length && `(${unstakedNFTs?.length})`}</h3>
                                             <div className="box-control">
                                                 <button className="btn-second" onClick={onStakeAll} disabled={stakeAllLoading}>
                                                     {stakeAllLoading ?
@@ -271,7 +270,7 @@ export default function Home() {
                                                             <PageLoading />
                                                         </div>
                                                         :
-                                                        <>STAKE ALL</>
+                                                        <>PUT TO WORK</>
                                                     }
                                                 </button>
                                             </div>
@@ -301,7 +300,7 @@ export default function Home() {
                                 <Grid item xs={12} md={6}>
                                     <div className="nft-box">
                                         <div className="box-header">
-                                            <h3>Staked NFT {stakedNFTs?.length && `(${stakedNFTs?.length})`}</h3>
+                                            <h3>Stevies Mining {stakedNFTs?.length && `(${stakedNFTs?.length})`}</h3>
                                             <div className="box-control">
                                                 <button className="btn-second" onClick={onUnstakeAll} disabled={unstakeAllLoading}>
                                                     {unstakeAllLoading ?
@@ -309,7 +308,7 @@ export default function Home() {
                                                             <PageLoading />
                                                         </div>
                                                         :
-                                                        <>UNSTAKE ALL</>
+                                                        <>FIRE ALL</>
                                                     }
                                                 </button>
                                                 <button className="btn-second" onClick={onClaimAll} disabled={claimAllLoading}>
@@ -318,7 +317,7 @@ export default function Home() {
                                                             <PageLoading />
                                                         </div>
                                                         :
-                                                        <>CLAIM ALL</>
+                                                        <>CASH OUT</>
                                                     }
                                                 </button>
                                             </div>
