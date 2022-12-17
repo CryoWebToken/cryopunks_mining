@@ -105,7 +105,7 @@ export default function UnNFTCard({
                 }
             </div>
             <div className={loading ? "card-action is-loading" : "card-action"}>
-                <button className="btn-primary" onClick={onUnStake}>UNSTAKE</button>
+                <button className="btn-primary" onClick={onUnStake}>FIRE</button>
                 <button className="btn-primary" onClick={onClaim}>CLAIM</button>
             </div>
         </div>

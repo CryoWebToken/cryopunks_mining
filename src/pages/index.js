@@ -256,7 +256,7 @@ export default function Home() {
                     <Container>
                         <div className="main-page">
                             <div className="title-bar">
-                                <h2>Your Stevies Mining: {totalStaked}</h2>
+                                <h2>Total Stevies Mining: {totalStaked}</h2>
                             </div>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} md={6}>

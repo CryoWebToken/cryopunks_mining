@@ -79,7 +79,7 @@ export default function NFTCard({
                 }
             </div>
             <div className={loading ? "card-action is-loading" : "card-action"}>
-                <button className="btn-primary" onClick={onStake}>STAKE</button>
+                <button className="btn-primary" onClick={onStake}>SEND TO MINE</button>
             </div>
         </div>
     )
