@@ -247,7 +247,7 @@ export default function Home() {
                 <div className="top-title">
                     <Container maxWidth="lg">
                         <h2 className="title">
-                            Let Your Stevies Mine Cryogen
+                            Let Your Stevies Mine Cryogen!
                         </h2>
                         <p className="blink">DO NOT START MINING YET!!</p>
                         <p className="reward-rate">daily reward rate: <span>{dailyRewardRate === 0 ? "??" : dailyRewardRate} CRYOGEN</span></p>
