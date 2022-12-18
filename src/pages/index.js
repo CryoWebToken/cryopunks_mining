@@ -235,7 +235,7 @@ export default function Home() {
         <>
             <Head>
                 <title>CryoPunks Mining Dapp</title>
-                <meta name="description" content="Seattle SuperKongs Staking" />
+                <meta name="description" content="Let Your Stevies Mine Cryogen" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className={styles.main}>
