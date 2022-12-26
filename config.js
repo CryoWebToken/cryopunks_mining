@@ -2,7 +2,7 @@ export const CHAIN_ID = 56;
 export const StakingContract_Address = '0xb7ff9fff8af755470146c675ceb255a569c82f5a';
 export const StakingContract_Address_NFT = '0x89bd6e2304e431B5BF9a999f99D7912e68a9f5ec';
 export const SMARTCONTRACT_ADDRESS_ERC20 = '0x6A73A99fAC60c265863307c5A40abf32F0a040aC';
-export const NETWORK = "Smart Chain";
+export const NETWORK = "SmartChain";
 
 export const SITE_ERROR = [
 	"The wrong network, please switch to the Ethereum Rinkeby network.",
