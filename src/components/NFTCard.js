@@ -4,7 +4,7 @@ import {
   StakingContract_Address_NFT,
 } from "../../config";
 import { ScaleLoader } from "react-spinners";
-import { successAlert } from "./toastGroup";
+import { errorAlert, successAlert } from "./toastGroup";
 import { Button, Grid } from "@mui/material";
 import { PageLoading } from "./Loading";
 import { BigNumber } from "ethers";
@@ -64,6 +64,7 @@ export default function NFTCard({
       updatePage(signerAddress);
     } catch (error) {
       setLoading(false);
+      errorAlert(error.data.message);
       console.log(error.message);
     }
     setLoading(false);

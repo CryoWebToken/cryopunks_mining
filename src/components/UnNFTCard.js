@@ -4,9 +4,10 @@ import {
   StakingContract_Address_NFT,
 } from "../../config";
 import { ScaleLoader } from "react-spinners";
-import { successAlert } from "./toastGroup";
+import { errorAlert, successAlert } from "./toastGroup";
 import { PageLoading } from "./Loading";
 import { BigNumber } from "ethers";
+import { toast } from "react-toastify";
 export default function UnNFTCard({
   id,
   nftName,
@@ -60,6 +61,7 @@ export default function UnNFTCard({
       updatePage(signerAddress);
     } catch (error) {
       setLoading(false);
+      errorAlert(error.data.message);
       console.log(error);
     }
     setLoading(false);
@@ -74,6 +76,7 @@ export default function UnNFTCard({
       updatePage(signerAddress);
     } catch (error) {
       setLoading(false);
+      errorAlert(error.data.message);
       console.log(error);
     }
     setLoading(false);
