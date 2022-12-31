@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import styles from "../styles/Home.module.css";
@@ -18,7 +18,11 @@ import {
   StakingContract_Address_NFT,
 } from "../../config";
 import NFTCard from "../components/NFTCard";
-import { errorAlertCenter, successAlert } from "../components/toastGroup";
+import {
+  errorAlertCenter,
+  successAlert,
+  warningAlert,
+} from "../components/toastGroup";
 import { Container, Grid, Button } from "@mui/material";
 import UnNFTCard from "../components/UnNFTCard";
 import { PageLoading } from "../components/Loading";
@@ -39,8 +43,21 @@ export default function Home() {
   const [unstakeAllLoading, setUnstakeAllLoading] = useState(false);
   const [claimAllLoading, setClaimAllLoading] = useState(false);
   const [dailyRewardRate, setDailyRewardRate] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const connectWallet = async () => {
+    if (isMobile && typeof window.ethereum === "undefined") {
+      navigator.clipboard.writeText(window.location.origin);
+      warningAlert(
+        "URL coppied! Please go to Metamask Mobile App and paste URL in the browser then connect your wallet"
+      );
+
+      setTimeout(() => {
+        window.location = `https://metamask.app.link/dapp/${window.location.origin}`;
+      }, 5000);
+      return;
+    }
+
     if (await checkNetwork()) {
       setLoading(true);
       web3Modal = new Web3Modal({
@@ -230,6 +247,13 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+    if (isMobile) {
+      return setIsMobile(true);
+    }
     async function fetchData() {
       if (typeof window.ethereum !== "undefined") {
         if (await checkNetwork()) {
@@ -249,6 +273,7 @@ export default function Home() {
         errorAlertCenter(SITE_ERROR[1]);
       }
     }
+
     fetchData();
     // eslint-disable-next-line
   }, []);
