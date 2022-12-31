@@ -40,6 +40,7 @@ export default function UnNFTCard({
     const now = new Date().getTime() / 1000;
     const rate = parseFloat(await contract.getRewardRate()) / Math.pow(10, 18);
     const data = await contract.viewStake(id);
+    // console.log("data", data)
     const reward =
       ((now - parseFloat(data.releaseTime)) * rate) / (24 * 60 * 60) / 25;
     setReward(reward);
@@ -90,6 +91,9 @@ export default function UnNFTCard({
   return (
     <div className="nft-card">
       <div className="reward">
+        <p>
+          {id} / {tokenId}{" "}
+        </p>
         <p>Reward:</p>
         <span>{parseFloat(reward).toLocaleString()} Cryogen</span>
       </div>

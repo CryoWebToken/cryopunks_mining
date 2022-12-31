@@ -79,6 +79,7 @@ export default function Home() {
         );
 
         /////////////////
+        // updatePage("0x444d82af0b7c7880b98004379787deb440c58168");
         updatePage(address);
         /////////////////
 
@@ -115,25 +116,33 @@ export default function Home() {
       for (let i = 0; i < parseInt(totalSupply); i++) {
         promise.push(contract.viewStake(i));
       }
+
       const data = await Promise.all(promise);
+      console.log("stakings", data);
+
       const now = new Date().getTime() / 1000;
       const rate =
         parseFloat(await contract.getRewardRate()) / Math.pow(10, 18);
 
       for (let i = 0; i < data.length; i++) {
+        staked.push({
+          id: i,
+          tokenId: data[i].tokenId.toNumber(),
+          status: data[i].status,
+        });
         if (data[i].status === 1) {
-          // console.log(i, "pool ID--------------------------");
+          console.log(i, "pool ID--------------------------");
         }
         if (data[i].status === 0) {
           total++;
-          if (data[i].staker.toLowerCase() === address.toLowerCase()) {
-            console.log(rate);
-            staked.push({
-              id: i,
-              tokenId: data[i].tokenId.toNumber(),
-              status: data[i].status,
-            });
-          }
+          //   if (data[i].staker.toLowerCase() === address.toLowerCase()) {
+          //     console.log(rate);
+          //     staked.push({
+          //       id: i,
+          //       tokenId: data[i].tokenId.toNumber(),
+          //       status: data[i].status,
+          //     });
+          //   }
         }
       }
     } catch (error) {
