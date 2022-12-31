@@ -125,24 +125,19 @@ export default function Home() {
         parseFloat(await contract.getRewardRate()) / Math.pow(10, 18);
 
       for (let i = 0; i < data.length; i++) {
-        staked.push({
-          id: i,
-          tokenId: data[i].tokenId.toNumber(),
-          status: data[i].status,
-        });
         if (data[i].status === 1) {
           console.log(i, "pool ID--------------------------");
         }
         if (data[i].status === 0) {
           total++;
-          //   if (data[i].staker.toLowerCase() === address.toLowerCase()) {
-          //     console.log(rate);
-          //     staked.push({
-          //       id: i,
-          //       tokenId: data[i].tokenId.toNumber(),
-          //       status: data[i].status,
-          //     });
-          //   }
+          if (data[i].staker.toLowerCase() === address.toLowerCase()) {
+            console.log(rate);
+            staked.push({
+              id: i,
+              tokenId: data[i].tokenId.toNumber(),
+              status: data[i].status,
+            });
+          }
         }
       }
     } catch (error) {

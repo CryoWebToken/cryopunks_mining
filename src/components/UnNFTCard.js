@@ -34,6 +34,7 @@ export default function UnNFTCard({
     //    }).then((json) => {
     //        setImage(json?.image)
     //   });
+    //
   };
 
   const getReward = async () => {
@@ -91,9 +92,6 @@ export default function UnNFTCard({
   return (
     <div className="nft-card">
       <div className="reward">
-        <p>
-          {id} / {tokenId}{" "}
-        </p>
         <p>Reward:</p>
         <span>{parseFloat(reward).toLocaleString()} Cryogen</span>
       </div>
