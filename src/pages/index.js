@@ -265,15 +265,7 @@ export default function Home() {
                                         <div className="box-header">
                                             <h3>Unemployed Stevies {unstakedNFTs?.length && `(${unstakedNFTs?.length})`}</h3>
                                             <div className="box-control">
-                                                <button className="btn-second" onClick={onStakeAll} disabled={stakeAllLoading}>
-                                                    {stakeAllLoading ?
-                                                        <div className="btn-loading">
-                                                            <PageLoading />
-                                                        </div>
-                                                        :
-                                                        <>PUT TO WORK</>
-                                                    }
-                                                </button>
+
                                             </div>
                                         </div>
                                         <div className="box">
@@ -303,24 +295,7 @@ export default function Home() {
                                         <div className="box-header">
                                             <h3>Stevies Mining {stakedNFTs?.length && `(${stakedNFTs?.length})`}</h3>
                                             <div className="box-control">
-                                                <button className="btn-second" onClick={onUnstakeAll} disabled={unstakeAllLoading}>
-                                                    {unstakeAllLoading ?
-                                                        <div className="btn-loading">
-                                                            <PageLoading />
-                                                        </div>
-                                                        :
-                                                        <>FIRE ALL</>
-                                                    }
-                                                </button>
-                                                <button className="btn-second" onClick={onClaimAll} disabled={claimAllLoading}>
-                                                    {claimAllLoading ?
-                                                        <div className="btn-loading">
-                                                            <PageLoading />
-                                                        </div>
-                                                        :
-                                                        <>CASH OUT</>
-                                                    }
-                                                </button>
+
                                             </div>
                                         </div>
                                         <div className="box">
