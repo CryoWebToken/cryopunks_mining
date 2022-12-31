@@ -79,7 +79,7 @@ export default function Home() {
         );
 
         /////////////////
-        updatePage("0x444d82af0b7c7880b98004379787deb440c58168");
+        updatePage(address);
         /////////////////
 
         // Subscribe to accounts change
