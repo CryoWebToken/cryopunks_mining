@@ -22,39 +22,40 @@ export default function UnNFTCard({
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState("");
   const [reward, setReward] = useState(0);
+ const [stakeDuration, setStakeDuration] = useState("");
+ const getNftDetail = async () => {
+   const uri = await contract_nft?.tokenURI(tokenId);
+   const url = `https://ipfs.io/ipfs/QmaKBC7tJPtgnYn3C5p8GRQcY9pRhxG3vrkto8N5kW5svA/${tokenId}.json`;
+   const imageUrl = `https://ipfs.io/ipfs/QmeQPsbhb3wRX7XVD54yJcfGM4SnmeFaiaXLLESuyccpiE/${tokenId}.png`;
+   setImage(imageUrl);
+   //await fetch(uri)
+   //    .then(resp =>
+   //        resp.json()
+   //    ).catch((e) => {
+   //        console.log(e);
+   //    }).then((json) => {
+   //        setImage(json?.image)
+   //   });
+   //
+ };
 
-  const getNftDetail = async () => {
-    const uri = await contract_nft?.tokenURI(tokenId);
-    const url = `https://ipfs.io/ipfs/QmaKBC7tJPtgnYn3C5p8GRQcY9pRhxG3vrkto8N5kW5svA/${tokenId}.json`;
-    const imageUrl = `https://ipfs.io/ipfs/QmeQPsbhb3wRX7XVD54yJcfGM4SnmeFaiaXLLESuyccpiE/${tokenId}.png`;
-    setImage(imageUrl);
-    //await fetch(uri)
-    //    .then(resp =>
-    //        resp.json()
-    //    ).catch((e) => {
-    //        console.log(e);
-    //    }).then((json) => {
-    //        setImage(json?.image)
-    //   });
-    //
-  };
+ const getReward = async () => {
+   const now = new Date().getTime() / 1000;
+   const rate = parseFloat(await contract.getRewardRate()) / Math.pow(10, 18);
+   console.log("rate", rate);
+   const data = await contract.viewStake(id);
+   // console.log("data", data)
+   const diffInMinutes = (now - parseFloat(data.releaseTime)) / 60;
+   setStakeDuration(diffInMinutes);
+   // const reward =
+   //   ((now - parseFloat(data.releaseTime)) * rate) / (24 * 60 * 60) / 25;
 
-  const getReward = async () => {
-    const now = new Date().getTime() / 1000;
-    const rate = parseFloat(await contract.getRewardRate()) / Math.pow(10, 18);
-    console.log("rate", rate);
-    const data = await contract.viewStake(id);
-    // console.log("data", data)
-    const diffInMinutes = (now - parseFloat(data.releaseTime)) / 60;
-    // const reward =
-    //   ((now - parseFloat(data.releaseTime)) * rate) / (24 * 60 * 60) / 25;
+   // 5 comes from staking contract by hardcoding
+   const reward = (diffInMinutes / 5) * rate;
+   console.log("diifInminutes", { diffInMinutes, reward });
 
-    // 5 comes from staking contract by hardcoding
-    const reward = (diffInMinutes / 5) * rate;
-    console.log("diifInminutes", { diffInMinutes, reward });
-
-    setReward(reward);
-  };
+   setReward(reward);
+ };
 
   const showReward = () => {
     getReward();
@@ -128,6 +129,10 @@ export default function UnNFTCard({
       <div className="reward">
         <p>Reward:</p>
         <span>{parseFloat(reward).toLocaleString()} Cryogen</span>
+      </div>
+      <div className="duration">
+        <p>Staked:</p>
+        <span>{parseFloat(stakeDuration).toLocaleString()} min</span>
       </div>
       {loading && (
         <div className="card-loading">
