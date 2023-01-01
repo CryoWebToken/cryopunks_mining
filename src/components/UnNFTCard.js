@@ -11,12 +11,14 @@ import { toast } from "react-toastify";
 export default function UnNFTCard({
   id,
   nftName,
+  status,
   tokenId,
   signerAddress,
   updatePage,
   contract,
   contract_nft,
 }) {
+  console.log("status", status);
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState("");
   const [reward, setReward] = useState(0);
@@ -141,16 +143,25 @@ export default function UnNFTCard({
         )}
       </div>
       <div className={loading ? "card-action is-loading" : "card-action"}>
-        <button className="btn-primary" onClick={onUnStake}>
-          FIRE
-        </button>
-
-        <button className="btn-primary" onClick={onCheck}>
-          CHECK
-        </button>
-        <button className="btn-primary" onClick={onClaim}>
-          CLAIM
-        </button>
+        {status === 0 && (
+          <>
+            <button className="btn-primary" onClick={onUnStake}>
+              FIRE
+            </button>
+          </>
+        )}
+        {status === 0 && reward > 0 && (
+          <>
+            <button className="btn-primary" onClick={onCheck}>
+              APPROVE
+            </button>
+          </>
+        )}
+        {status === 1 && (
+          <button className="btn-primary" onClick={onClaim}>
+            CLAIM
+          </button>
+        )}
       </div>
     </div>
   );

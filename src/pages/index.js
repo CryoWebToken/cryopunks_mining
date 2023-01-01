@@ -403,6 +403,7 @@ export default function Home() {
                               <UnNFTCard
                                 key={key}
                                 id={item.id}
+                                status={item.status}
                                 tokenId={item.tokenId}
                                 signerAddress={signerAddress}
                                 updatePage={() => updatePage(signerAddress)}
