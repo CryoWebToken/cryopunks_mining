@@ -40,10 +40,17 @@ export default function UnNFTCard({
   const getReward = async () => {
     const now = new Date().getTime() / 1000;
     const rate = parseFloat(await contract.getRewardRate()) / Math.pow(10, 18);
+    console.log("rate", rate);
     const data = await contract.viewStake(id);
     // console.log("data", data)
-    const reward =
-      ((now - parseFloat(data.releaseTime)) * rate) / (24 * 60 * 60) / 25;
+    const diffInMinutes = (now - parseFloat(data.releaseTime)) / 60;
+    // const reward =
+    //   ((now - parseFloat(data.releaseTime)) * rate) / (24 * 60 * 60) / 25;
+
+    // 5 comes from staking contract by hardcoding
+    const reward = (diffInMinutes / 5) * rate;
+    console.log("diifInminutes", { diffInMinutes, reward });
+
     setReward(reward);
   };
 
@@ -63,11 +70,36 @@ export default function UnNFTCard({
       updatePage(signerAddress);
     } catch (error) {
       setLoading(false);
-      errorAlert(error.data.message);
+      errorAlert(error?.data?.message || error?.message);
+
       console.log(error);
     }
     setLoading(false);
   };
+  const onCheck = async () => {
+    setLoading(true);
+    try {
+      const check = await contract.checkStake(
+        BigNumber.from(id),
+        signerAddress
+      );
+      await check.wait();
+      successAlert("Staking is checked. You can claim now");
+      updatePage(signerAddress);
+    } catch (error) {
+      setLoading(false);
+      errorAlert(error?.data?.message || error?.message);
+
+      console.log(error);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    getNftDetail();
+    showReward();
+    // eslint-disable-next-line
+  }, []);
 
   const onClaim = async () => {
     setLoading(true);
@@ -78,7 +110,7 @@ export default function UnNFTCard({
       updatePage(signerAddress);
     } catch (error) {
       setLoading(false);
-      errorAlert(error.data.message);
+      errorAlert(error?.data?.message || error?.message);
       console.log(error);
     }
     setLoading(false);
@@ -111,6 +143,10 @@ export default function UnNFTCard({
       <div className={loading ? "card-action is-loading" : "card-action"}>
         <button className="btn-primary" onClick={onUnStake}>
           FIRE
+        </button>
+
+        <button className="btn-primary" onClick={onCheck}>
+          CHECK
         </button>
         <button className="btn-primary" onClick={onClaim}>
           CLAIM

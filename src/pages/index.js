@@ -145,7 +145,7 @@ export default function Home() {
         if (data[i].status === 1) {
           console.log(i, "pool ID--------------------------");
         }
-        if (data[i].status === 0) {
+        if (data[i].status === 0 || data[i].status === 1) {
           total++;
           if (data[i].staker.toLowerCase() === address.toLowerCase()) {
             console.log(rate);
