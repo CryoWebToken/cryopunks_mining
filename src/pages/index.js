@@ -145,7 +145,7 @@ export default function Home() {
         if (data[i].status === 1) {
           console.log(i, "pool ID--------------------------");
         }
-        if (data[i].status === 0) {
+        if (data[i].status === 0 || data[i].status === 1) {
           total++;
           if (data[i].staker.toLowerCase() === address.toLowerCase()) {
             console.log(rate);
@@ -278,130 +278,151 @@ export default function Home() {
     // eslint-disable-next-line
   }, []);
 
-    return (
-        <>
-            <Head>
-                <title>CryoPunks Mining Dapp</title>
-                <meta name="description" content="Let Your Stevies Mine Cryogen" />
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
-            <main className={styles.main}>
-                <Header
-                    signerAddress={signerAddress}
-                    connectWallet={() => connectWallet()}
-                    connected={connected}
-                />
-                <div className="top-title">
-                    <Container maxWidth="lg">
-                        <h2 className="title">
-                            Let Your Stevies Mine Cryogen!
-                        </h2>
-                        <p className="blink">DO NOT START MINING YET!!</p>
-                        <p className="reward-rate">daily reward rate: <span>{dailyRewardRate === 0 ? "??" : dailyRewardRate} CRYOGEN</span></p>
-                    </Container>
-                </div>
-                {connected &&
-                    <Container>
-                        <div className="main-page">
-                            <div className="title-bar">
-                                <h2>Total Stevies Mining: {totalStaked}</h2>
+  return (
+    <>
+      <Head>
+        <title>CryoPunks Mining Dapp</title>
+        <meta name="description" content="Let Your Stevies Mine Cryogen" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <main className={styles.main}>
+        <Header
+          signerAddress={signerAddress}
+          connectWallet={() => connectWallet()}
+          connected={connected}
+        />
+        <div className="top-title">
+          <Container maxWidth="lg">
+            <h2 className="title">Let Your Stevies Mine Cryogen!</h2>
+            <p className="blink">DO NOT START MINING YET!!</p>
+            <p className="reward-rate">
+              daily reward rate:{" "}
+              <span>
+                {dailyRewardRate === 0 ? "??" : dailyRewardRate} CRYOGEN
+              </span>
+            </p>
+          </Container>
+        </div>
+        {connected && (
+          <Container>
+            <div className="main-page">
+              <div className="title-bar">
+                <h2>Total Stevies Mining: {totalStaked}</h2>
+              </div>
+              <Grid container spacing={2}>
+                <Grid item xs={12} md={6}>
+                  <div className="nft-box">
+                    <div className="box-header">
+                      <h3>
+                        Unemployed Stevies{" "}
+                        {unstakedNFTs?.length && `(${unstakedNFTs?.length})`}
+                      </h3>
+                      <div className="box-control">
+                        <button
+                          className="btn-second"
+                          onClick={onStakeAll}
+                          disabled={stakeAllLoading}
+                        >
+                          {stakeAllLoading ? (
+                            <div className="btn-loading">
+                              <PageLoading />
                             </div>
-                            <Grid container spacing={2}>
-                                <Grid item xs={12} md={6}>
-                                    <div className="nft-box">
-                                        <div className="box-header">
-                                            <h3>Unemployed Stevies {unstakedNFTs?.length && `(${unstakedNFTs?.length})`}</h3>
-                                            <div className="box-control">
-                                                <button className="btn-second" onClick={onStakeAll} disabled={stakeAllLoading}>
-                                                    {stakeAllLoading ?
-                                                        <div className="btn-loading">
-                                                            <PageLoading />
-                                                        </div>
-                                                        :
-                                                        <>PUT TO WORK</>
-                                                    }
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div className="box">
-                                            {loading ?
-                                                <PageLoading />
-                                                :
-                                                <div className="box-content">
-                                                    {unstakedNFTs && unstakedNFTs.length !== 0 && unstakedNFTs.map((item, key) => (
-                                                        <NFTCard
-                                                            id={item.id}
-                                                            key={key}
-                                                            tokenId={item.tokenId}
-                                                            signerAddress={signerAddress}
-                                                            updatePage={() => updatePage(signerAddress)}
-                                                            contract={contract}
-                                                            contract_nft={contract_nft}
-                                                        />
-                                                    ))}
-                                                </div>
-
-                                            }
-                                        </div>
-                                    </div>
-                                </Grid>
-                                <Grid item xs={12} md={6}>
-                                    <div className="nft-box">
-                                        <div className="box-header">
-                                            <h3>Stevies Mining {stakedNFTs?.length && `(${stakedNFTs?.length})`}</h3>
-                                            <div className="box-control">
-                                                <button className="btn-second" onClick={onUnstakeAll} disabled={unstakeAllLoading}>
-                                                    {unstakeAllLoading ?
-                                                        <div className="btn-loading">
-                                                            <PageLoading />
-                                                        </div>
-                                                        :
-                                                        <>FIRE ALL</>
-                                                    }
-                                                </button>
-                                                <button className="btn-second" onClick={onClaimAll} disabled={claimAllLoading}>
-                                                    {claimAllLoading ?
-                                                        <div className="btn-loading">
-                                                            <PageLoading />
-                                                        </div>
-                                                        :
-                                                        <>CASH OUT</>
-                                                    }
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div className="box">
-                                            {loading ?
-                                                <PageLoading />
-                                                :
-                                                <div className="box-content">
-                                                    {stakedNFTs && stakedNFTs.length !== 0 && stakedNFTs.map((item, key) => (
-                                                        <UnNFTCard
-                                                            key={key}
-                                                            id={item.id}
-                                                            tokenId={item.tokenId}
-                                                            signerAddress={signerAddress}
-                                                            updatePage={() => updatePage(signerAddress)}
-                                                            contract={contract}
-                                                            contract_nft={contract_nft}
-                                                        />
-                                                    ))}
-                                                </div>
-                                            }
-                                        </div>
-                                    </div>
-                                </Grid>
-                            </Grid>
+                          ) : (
+                            <>PUT TO WORK</>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                    <div className="box">
+                      {loading ? (
+                        <PageLoading />
+                      ) : (
+                        <div className="box-content">
+                          {unstakedNFTs &&
+                            unstakedNFTs.length !== 0 &&
+                            unstakedNFTs.map((item, key) => (
+                              <NFTCard
+                                id={item.id}
+                                key={key}
+                                tokenId={item.tokenId}
+                                signerAddress={signerAddress}
+                                updatePage={() => updatePage(signerAddress)}
+                                contract={contract}
+                                contract_nft={contract_nft}
+                              />
+                            ))}
                         </div>
-                    </Container>
-                }
-            </main>
-            {/* eslint-disable-next-line */}
-            <img
-                src="/kongbackground.gif"
-                className="background"
-                alt=""
-            />
-        </>
-    )
+                      )}
+                    </div>
+                  </div>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <div className="nft-box">
+                    <div className="box-header">
+                      <h3>
+                        Stevies Mining{" "}
+                        {stakedNFTs?.length && `(${stakedNFTs?.length})`}
+                      </h3>
+                      <div className="box-control">
+                        <button
+                          className="btn-second"
+                          onClick={onUnstakeAll}
+                          disabled={unstakeAllLoading}
+                        >
+                          {unstakeAllLoading ? (
+                            <div className="btn-loading">
+                              <PageLoading />
+                            </div>
+                          ) : (
+                            <>FIRE ALL</>
+                          )}
+                        </button>
+                        <button
+                          className="btn-second"
+                          onClick={onClaimAll}
+                          disabled={claimAllLoading}
+                        >
+                          {claimAllLoading ? (
+                            <div className="btn-loading">
+                              <PageLoading />
+                            </div>
+                          ) : (
+                            <>CASH OUT</>
+                          )}
+                        </button>
+                      </div>
+                    </div>
+                    <div className="box">
+                      {loading ? (
+                        <PageLoading />
+                      ) : (
+                        <div className="box-content">
+                          {stakedNFTs &&
+                            stakedNFTs.length !== 0 &&
+                            stakedNFTs.map((item, key) => (
+                              <UnNFTCard
+                                key={key}
+                                id={item.id}
+                                status={item.status}
+                                tokenId={item.tokenId}
+                                signerAddress={signerAddress}
+                                updatePage={() => updatePage(signerAddress)}
+                                contract={contract}
+                                contract_nft={contract_nft}
+                              />
+                            ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </Grid>
+              </Grid>
+            </div>
+          </Container>
+        )}
+      </main>
+      {/* eslint-disable-next-line */}
+      <img src="/kongbackground.gif" className="background" alt="" />
+    </>
+  );
 }
