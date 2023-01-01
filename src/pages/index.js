@@ -317,7 +317,7 @@ export default function Home() {
                         Unemployed Stevies{" "}
                         {unstakedNFTs?.length && `(${unstakedNFTs?.length})`}
                       </h3>
-                      <div className="box-control">
+                      {/* <div className="box-control">
                         <button
                           className="btn-second"
                           onClick={onStakeAll}
@@ -331,7 +331,7 @@ export default function Home() {
                             <>PUT TO WORK</>
                           )}
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="box">
                       {loading ? (
@@ -363,7 +363,7 @@ export default function Home() {
                         Stevies Mining{" "}
                         {stakedNFTs?.length && `(${stakedNFTs?.length})`}
                       </h3>
-                      <div className="box-control">
+                      {/* <div className="box-control">
                         <button
                           className="btn-second"
                           onClick={onUnstakeAll}
@@ -390,7 +390,7 @@ export default function Home() {
                             <>CASH OUT</>
                           )}
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="box">
                       {loading ? (
