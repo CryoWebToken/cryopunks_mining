@@ -298,7 +298,7 @@ export default function Home() {
             <p className="reward-rate">
               daily reward rate:{" "}
               <span>
-                {dailyRewardRate === 0 ? "??" : dailyRewardRate} CRYOGEN
+                {dailyRewardRate === 0 ? "??" : dailyRewardRate}mm CRYOGEN
               </span>
             </p>
           </Container>
