@@ -145,7 +145,7 @@ export default function Home() {
         if (data[i].status === 1) {
           console.log(i, "pool ID--------------------------");
         }
-        if (data[i].status === 0) {
+        if (data[i].status === 0 || data[i].status === 1) {
           total++;
           if (data[i].staker.toLowerCase() === address.toLowerCase()) {
             console.log(rate);
@@ -298,7 +298,7 @@ export default function Home() {
             <p className="reward-rate">
               daily reward rate:{" "}
               <span>
-                {dailyRewardRate === 0 ? "??" : dailyRewardRate} CRYOGEN
+                {dailyRewardRate === 0 ? "??" : dailyRewardRate}mm CRYOGEN
               </span>
             </p>
           </Container>
@@ -317,7 +317,7 @@ export default function Home() {
                         Unemployed Stevies{" "}
                         {unstakedNFTs?.length && `(${unstakedNFTs?.length})`}
                       </h3>
-                      <div className="box-control">
+                      {/* <div className="box-control">
                         <button
                           className="btn-second"
                           onClick={onStakeAll}
@@ -331,7 +331,7 @@ export default function Home() {
                             <>PUT TO WORK</>
                           )}
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="box">
                       {loading ? (
@@ -363,7 +363,7 @@ export default function Home() {
                         Stevies Mining{" "}
                         {stakedNFTs?.length && `(${stakedNFTs?.length})`}
                       </h3>
-                      <div className="box-control">
+                      {/* <div className="box-control">
                         <button
                           className="btn-second"
                           onClick={onUnstakeAll}
@@ -390,7 +390,7 @@ export default function Home() {
                             <>CASH OUT</>
                           )}
                         </button>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="box">
                       {loading ? (
@@ -403,6 +403,7 @@ export default function Home() {
                               <UnNFTCard
                                 key={key}
                                 id={item.id}
+                                status={item.status}
                                 tokenId={item.tokenId}
                                 signerAddress={signerAddress}
                                 updatePage={() => updatePage(signerAddress)}
