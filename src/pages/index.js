@@ -91,9 +91,12 @@ export default function Home() {
           SMARTCONTRACT_ABI_ERC20,
           signer
         );
-        setDailyRewardRate(
-          (await contract.getRewardRate()) / Math.pow(10, 18) / 25
-        );
+        // rewardRate for every 5 min. so multiply it (24*60/5) for daily reward
+        const rewardRate = await contract.getRewardRate();
+        console.log("rewardRate", rewardRate / Math.pow(10, 18));
+        const _dailyRewardRate =
+          (rewardRate / Math.pow(10, 18)) * ((24 * 60) / 5);
+        setDailyRewardRate(Math.round(_dailyRewardRate));
 
         /////////////////
         // updatePage("0x444d82af0b7c7880b98004379787deb440c58168");

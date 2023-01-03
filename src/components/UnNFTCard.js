@@ -42,7 +42,6 @@ export default function UnNFTCard({
  const getReward = async () => {
    const now = new Date().getTime() / 1000;
    const rate = parseFloat(await contract.getRewardRate()) / Math.pow(10, 18);
-   console.log("rate", rate);
    const data = await contract.viewStake(id);
    // console.log("data", data)
    const diffInMinutes = (now - parseFloat(data.releaseTime)) / 60;
