@@ -130,7 +130,7 @@ export default function UnNFTCard({
         <span>{parseFloat(reward).toLocaleString()} Cryogen</span>
       </div>
       <div className="duration">
-        <p>Staked:</p>
+        <p>Mining For:</p>
         <span>{parseFloat(stakeDuration).toLocaleString()} min</span>
       </div>
       {loading && (
