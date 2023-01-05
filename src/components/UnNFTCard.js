@@ -147,7 +147,7 @@ export default function UnNFTCard({
         )}
       </div>
       <div className={loading ? "card-action is-loading" : "card-action"}>
-        {status === 0 && (
+        {status === 0 && stakeDuration < 5 && (
           <>
             <button className="btn-primary" onClick={onUnStake}>
               FIRE
