@@ -235,15 +235,16 @@ export default function Home() {
         <>
             <Head >
                 <title>Let Your Stevies Mine Cryogen</title>
-                <meta name="description" content="Cryopunks NFT staking for Cryogen" />
+                <meta name="description" content="Cryopunks NFT mining for Cryogen" />
                 <meta property="og:url" content="https://cryogen.life" />
-                <meta property="og:title" content="Cryopunks NFT Staking" />
-                <meta property="og:description" content="Stake your cryopunks to earn cryogen daily" />
+                <meta property="og:title" content="Cryopunks NFT Mining" />
+                <meta property="og:description" content="Stake your cryopunks NFTs to mine cryogen daily" />
                 <meta property="og:image" content="https://cryogen.life/images/smallICO.png" />
                 <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:alt" content="Cryogen defi the world" />
-                <meta property="og:site_name" content="Cryopunks" />
+                <meta property="og:site_name" content="Cryopunks NFT BSC Mining dApp" />
                 <link rel="icon" href="/favicon.ico" />
+                <meta name="google-site-verification" content="X0NY0qUsMz_k-q_7Ew86Whh1LJsWHfRlh5Q0OfgkQ_4" />
             </Head >
             <main className={styles.main}>
                 <Header
