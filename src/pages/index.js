@@ -296,11 +296,11 @@ export default function Home() {
         />
         <div className="top-title">
           <Container maxWidth="lg">
-            <h2 className="title">Let Your Stevies Mine Cryogen!</h2>
+            <h2 className="title">Let Your Stevies Mine Cryogen</h2>
             <p className="blink">THE MINES ARE OPEN!!</p>
             <p className="reward-rate">
-              daily reward rate:<p></p>{" "}
-              <span>
+              daily reward rate:{" "}
+              <p></p><span>
                 {dailyRewardRate === 0 ? "??" : dailyRewardRate}mm CRYOGEN
               </span>
             </p>
