@@ -300,7 +300,7 @@ export default function Home() {
             <p className="blink">THE MINES ARE OPEN!!</p>
             <p className="reward-rate">
               daily reward rate:{" "}
-              <p></p><span>
+              <br /><span>
                 {dailyRewardRate === 0 ? "??" : dailyRewardRate}mm CRYOGEN
               </span>
             </p>
