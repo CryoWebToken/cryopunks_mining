@@ -284,7 +284,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CryoPunks Mining Dapp</title>
+        <title>CryoPunks Mining Dapp!</title>
         <meta name="description" content="Let Your Stevies Mine Cryogen" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="google-site-verification" content="X0NY0qUsMz_k-q_7Ew86Whh1LJsWHfRlh5Q0OfgkQ_4" />
