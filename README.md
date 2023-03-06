@@ -1,7 +1,7 @@
-# ETH NFT Staking
+# BSC NFT Staking
 ## Requirement
-- ETH NFT Staking
-- Reward with utility token
+- BSC NFT Staking
+- Reward with BSC utility token
 ## Smart contract
 - Solidity
 ## Frontend
