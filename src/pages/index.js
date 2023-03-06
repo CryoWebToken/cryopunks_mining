@@ -299,7 +299,7 @@ export default function Home() {
             <h2 className="title">Let Your Stevies Mine Cryogen</h2>
             <p className="blink">THE MINES ARE OPEN!!</p>
             <p className="reward-rate">
-              daily reward rate:{" "}
+              daily reward rate:<br />{" "}
               <br /><span>
                 {dailyRewardRate === 0 ? "??" : dailyRewardRate}mm CRYOGEN
               </span>
