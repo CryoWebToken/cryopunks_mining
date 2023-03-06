@@ -281,7 +281,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CryoPunks Mining Dapp</title>
+        <title>CryoPunks NFT Mining Dapp on the BSC Let Your NFTS Mine Crypto</title>
         <meta name="description" content="Let Your Stevies Mine Cryogen" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
