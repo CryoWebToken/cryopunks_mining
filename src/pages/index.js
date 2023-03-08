@@ -276,7 +276,7 @@ export default function Home() {
         <div className="top-title">
           <Container maxWidth="lg">
           <p className="reward-rate">
-            Open this in Metamask Or TrustWallet Browser
+            Open in Metamask <br /> Or TrustWallet Browser
             </p>
             <h2 className="title">Let Your Stevies Mine Cryogen!</h2>
             <p className="blink">DO NOT START MINING YET!!</p>
