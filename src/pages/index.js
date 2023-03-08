@@ -279,10 +279,10 @@ export default function Home() {
             Open in Metamask <br /> Or TrustWallet Browser
             </p>
             <h2 className="title">Let Your Stevies Mine Cryogen!</h2>
-            <p className="blink">DO NOT START MINING YET!!</p>
+            <p className="blink">THE MINES ARE OPEN!!</p>
             <p className="reward-rate">
-              daily reward rate:{" "}
-              <span>
+              daily reward rate:<br />{" "}
+              <br /><span>
                 {dailyRewardRate === 0 ? "??" : dailyRewardRate}mm CRYOGEN
               </span>
             </p>
