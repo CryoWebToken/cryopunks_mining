@@ -276,14 +276,14 @@ export default function Home() {
         <div className="top-title">
           <Container maxWidth="lg">
           <p className="reward-rate">
-            Open in Metamask <br /> Or TrustWallet Browser
+            Open in Metamask <br /> Or TrustWallet<br /> Browser
             </p>
             <h2 className="title">Let Your Stevies Mine Cryogen!</h2>
             <p className="blink">THE MINES ARE OPEN!!</p>
             <p className="reward-rate">
               daily reward rate:<br />{" "}
               <br /><span>
-                {dailyRewardRate === 0 ? "??" : dailyRewardRate}mm CRYOGEN
+                800 Million CRYOGEN
               </span>
             </p>
           </Container>
