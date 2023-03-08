@@ -283,7 +283,7 @@ export default function Home() {
             <p className="reward-rate">
               daily reward rate:<br />{" "}
               <br /><span>
-                800 Million CRYOGEN
+                800 Million<br /> Cryogen
               </span>
             </p>
           </Container>
