@@ -88,11 +88,7 @@ export default function NFTCard({
           <img src={image} alt="" style={{ opacity: loading ? 0 : 1 }} />
         )}
       </div>
-      <div className={loading ? "card-action is-loading" : "card-action"}>
-        <button className="btn-primary" onClick={onStake}>
-          SEND TO MINE
-        </button>
-      </div>
+
     </div>
   );
 }

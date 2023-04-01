@@ -278,7 +278,7 @@ export default function Home() {
         <div className="top-title">
           <Container maxWidth="lg">
             <h2 className="title">Let Your Stevies Mine Cryogen</h2>
-            <p className="blink">THE MINES ARE OPEN!!</p>
+            <p className="blink">THE MINES ARE CLOSED!!</p>
             <p className="reward-rate">
               daily reward rate:<br />{" "}
               <br /><span>
@@ -298,7 +298,7 @@ export default function Home() {
                   <div className="nft-box">
                     <div className="box-header">
                       <h3>
-                        Unemployed Stevies{" "}
+                        Your Stevies{" "}
                         {unstakedNFTs?.length && `(${unstakedNFTs?.length})`}
                       </h3>
                       {/* <div className="box-control">

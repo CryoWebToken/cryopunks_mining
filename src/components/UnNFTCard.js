@@ -86,7 +86,7 @@ export default function UnNFTCard({
         signerAddress
       );
       await check.wait();
-      successAlert("Staking is checked. You can claim now");
+      successAlert("Mining Logs Approved! You can claim now");
       updatePage(signerAddress);
     } catch (error) {
       setLoading(false);
