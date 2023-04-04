@@ -281,9 +281,14 @@ export default function Home() {
             <p className="blink">THE MINES ARE CLOSED!!</p>
             <p className="reward-rate">
               daily reward rate:<br />{" "}
-              <br /><span>
+              <span>
                 800 Million CRYOGEN
               </span>
+            </p>
+            <p className="reward-rate2">
+            
+            <a href="https://cryogen.life/cryopunk">MINT Cryopunks Here</a> 
+              
             </p>
           </Container>
         </div>
