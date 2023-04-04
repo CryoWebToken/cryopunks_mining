@@ -44,6 +44,21 @@ header {
             text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
         }
     }
+    .reward-rate2 {
+        text-align: center;
+        color: #076609;
+        font-size: 20px;
+        text-decoration-line: underline;
+        text-underline-offset: 7px;
+        letter-spacing: 3px;
+        white-space: nowrap;
+        text-transform: uppercase;
+        text-shadow: 2px 2px 0 #fff, -2px 2px 0 #fff, 2px -2px 0 #fff, -2px -2px 0 #fff, 2px 2px 10px #00000090;
+        span {
+            color: #fbbc17;
+            text-shadow: 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+        }
+    }
 }
 .blink {
     animation: blinker 1s infinite;
