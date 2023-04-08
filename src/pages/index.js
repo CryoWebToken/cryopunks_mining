@@ -287,7 +287,7 @@ export default function Home() {
             </p>
             <p className="reward-rate2">
             
-            <a href="https://cryogen.life/cryopunk" rel="noreferrer" target="_blank">MINT Cryopunks Here</a> 
+            <a href="https://cryogen.life/cryopunk" target="_blank">MINT Cryopunks Here</a> 
               
             </p>
           </Container>
